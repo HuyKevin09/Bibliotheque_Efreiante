@@ -1,0 +1,70 @@
+<!doctype>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Bibliothèque Efreïante</title>
+        <link rel="icon" href="LOGO_ONGLET.png">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <header>
+                <img src="LOGO.png" alt="logo EFREI">
+                <h1>Bibliothèque Efreïante</h1>
+            </header>
+
+            <main>
+                <router-view
+                    :books="books"
+                    :basket="basket"
+                    :searched_books="searched_books"
+                    :searched_books_basket="searched_books_basket"
+
+                    @display-catalog = "displayCatalog"
+                    @sign-up="subscribe"
+
+                    @add-book="addBook"
+                    @search-book="searchBook"
+                    @delete-book="deleteBook"
+                    @update-book="updateBook"
+                    @add-to-basket="addBookToBasket"
+                    @confirm-basket="confirmBasketValidation"
+                    @display-basket="displayBasket"
+                ></router-view>
+                    <!-- @add-to-basket représente ce qui est émis et addBookToBasket est le nom de la méthode dans vue-application -->
+            </main>
+        </div>
+
+        <script src="/vue-application.js"></script>
+
+    </body>
+</html>
+
+<style>
+    #app {
+        margin-top: 1%;
+    }
+
+    header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-family: Avenir, sans-serif;
+        text-align: center;
+        font-size: 50px;
+        color: darkcyan;
+    }
+
+    img {
+        display: block;
+        width: 20%;
+        height: 15%;
+    }
+</style>
